@@ -1,0 +1,52 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{amsmath}
+
+\title{Understanding Zero-Knowledge Proofs: A Simple Introduction to Folding Schemes}
+\author{Cyprian Omukhwaya Sakwa}
+\date{\today}
+
+\begin{document}
+	
+	\maketitle
+	
+	\section*{Introduction}
+	
+	Zero-knowledge proofs (ZKPs) are cryptographic protocols that enable one party (the prover) to convince another (the verifier) of a statement's validity without revealing any additional information. These protocols are fundamental in applications like privacy-preserving blockchains and secure multiparty computations. This essay will focus on a subdomain of ZKPs: \textbf{folding schemes}, which enable efficient and scalable proof systems.
+	
+	Folding schemes compress multiple computational statements into fewer, simpler ones. This mechanism reduces the complexity for verifiers while maintaining the integrity of the proofs. 
+	
+	\section*{The Need for Folding Schemes}
+	
+	In cryptography, proving complex computational statements is resource-intensive. Consider verifying the validity of a large dataset processed by a blockchain smart contract. Traditional approaches involve executing every operation, which can be slow and expensive. Folding schemes solve this problem by collapsing proofs incrementally.
+	
+	For instance, the Nova protocol employs folding to recursively verify multiple computations over time. At every step, computations are folded into a compact representation, ensuring the verifier’s effort remains constant regardless of the number of statements.
+	
+	\section*{How Folding Schemes Work}
+	
+	At its core, folding relies on two principles:
+	
+	\paragraph*{1. Instance Folding}
+	Combine two computational statements \( S_1 \) and \( S_2 \) into a single statement \( S_3 \). This merging ensures that verifying \( S_3 \) implies the correctness of \( S_1 \) and \( S_2 \).
+	
+	\paragraph*{2. Constraint Folding}
+	Aggregate the logical constraints governing \( S_1 \) and \( S_2 \). This step ensures that proving \( S_3 \) satisfies all combined constraints.
+	
+	\subsubsection*{A Simple Analogy}
+	Imagine two jigsaw puzzles, \( P_1 \) and \( P_2 \), each representing a complex computation. A folding scheme combines these into a smaller puzzle, \( P_3 \), such that solving \( P_3 \) ensures \( P_1 \) and \( P_2 \) are correctly assembled. The original puzzles no longer need verification individually.
+	
+	\section*{Applications in Ethereum}
+	
+	Ethereum’s scalability and security challenges make ZKP-based folding schemes crucial. For example:
+	
+	\begin{enumerate}
+		\item \textbf{Scalable Rollups}: Folding schemes can compress transaction proofs in rollups like zkSync or StarkNet, reducing on-chain verification costs.
+		\item \textbf{Recursive Proof Composition}: Protocols like Halo employ folding to recursively verify smart contract executions, enabling scalability without compromising security.
+	\end{enumerate}
+	
+	\section*{Conclusion}
+	
+	Folding schemes are a cornerstone of modern ZKP systems, enabling scalability, efficiency, and quantum resilience. Whether enhancing Ethereum’s rollup solutions or advancing privacy-preserving applications, folding schemes ensure robust cryptographic proofs in resource-constrained environments. By focusing on practical applications, we can unlock blockchain's full potential.
+	
+\end{document}
